@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>川小农 - AI文案助手</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <button class="new-chat-btn" id="newChatBtn">
+                    <i class="fas fa-plus"></i>
+                    新对话
+                </button>
+            </div>
+            <div class="chat-history" id="chatHistory">
+                <!-- 对话历史列表将通过JS动态生成 -->
+            </div>
+            <div class="sidebar-footer">
+                <button class="clear-history-btn" id="clearHistoryBtn">
+                    <i class="fas fa-trash"></i>
+                    清除历史
+                </button>
+            </div>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 顶部栏 -->
+            <header class="top-bar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="app-title">
+                    <span class="logo">川</span>
+                    川小农文案助手
+                </h1>
+                <div class="top-actions">
+                    <button class="settings-btn" id="settingsBtn">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- 对话区域 -->
+            <div class="chat-container" id="chatContainer">
+                <!-- 欢迎页面 -->
+                <div class="welcome-screen" id="welcomeScreen">
+                    <div class="welcome-logo">
+                        <span class="logo-large">川</span>
+                    </div>
+                    <h2>川小农文案助手</h2>
+                    <p>我是您的AI文案助手，擅长创作各类营销文案、产品介绍、社交媒体内容等。</p>
+                    <div class="quick-prompts">
+                        <button class="prompt-chip" data-prompt="请帮我写一段产品营销文案">
+                            <i class="fas fa-bullhorn"></i>
+                            产品营销文案
+                        </button>
+                        <button class="prompt-chip" data-prompt="请帮我写一篇社交媒体推广文案">
+                            <i class="fas fa-share-alt"></i>
+                            社交媒体文案
+                        </button>
+                        <button class="prompt-chip" data-prompt="请帮我写一份产品介绍">
+                            <i class="fas fa-box"></i>
+                            产品介绍
+                        </button>
+                        <button class="prompt-chip" data-prompt="请帮我写一段品牌故事">
+                            <i class="fas fa-book"></i>
+                            品牌故事
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 消息列表 -->
+                <div class="messages" id="messages">
+                    <!-- 消息将通过JS动态生成 -->
+                </div>
+            </div>
+
+            <!-- 输入区域 -->
+            <div class="input-area">
+                <div class="input-container">
+                    <textarea
+                        id="userInput"
+                        placeholder="输入您的文案需求..."
+                        rows="1"
+                        maxlength="4000"
+                    ></textarea>
+                    <button class="send-btn" id="sendBtn" disabled>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="input-footer">
+                    <span class="char-count"><span id="charCount">0</span>/4000</span>
+                    <span class="model-info">小米大模型</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 设置弹窗 -->
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>设置</h3>
+                <button class="modal-close" id="closeSettings">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label>API地址</label>
+                    <input type="text" id="apiUrl" placeholder="输入API地址">
+                </div>
+                <div class="setting-group">
+                    <label>API密钥</label>
+                    <input type="password" id="apiKey" placeholder="输入API密钥">
+                </div>
+                <div class="setting-group">
+                    <label>模型选择</label>
+                    <select id="modelSelect">
+                        <option value="MiMo">MiMo</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label>系统提示词</label>
+                    <textarea id="systemPrompt" rows="4" placeholder="输入系统提示词...">你是川小农，一个专业的AI文案助手。你擅长创作各类营销文案、产品介绍、社交媒体内容、品牌故事等。请用专业、有创意的方式帮助用户完成文案创作任务。</textarea>
+                </div>
+                <button class="save-settings-btn" id="saveSettings">保存设置</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
