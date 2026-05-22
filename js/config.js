@@ -4,7 +4,7 @@ const Config = {
     defaults: {
         apiUrl: 'https://api.xiaomi.com/v1/chat/completions',
         apiKey: '',
-        model: 'MiMo',
+        model: 'MiMo-V2-Omni',
         systemPrompt: '你是川小农，一个专业的AI文案助手。你擅长创作各类营销文案、产品介绍、社交媒体内容、品牌故事等。请用专业、有创意的方式帮助用户完成文案创作任务。'
     },
 
