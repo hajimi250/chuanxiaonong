@@ -26,12 +26,6 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Inject API Config
-        run: |
-          # 从GitHub Secrets读取配置并注入到config.js
-          sed -i "s|apiUrl: '.*'|apiUrl: '${{ secrets.XIAOMI_API_URL }}'|" js/config.js
-          sed -i "s|apiKey: '.*'|apiKey: '${{ secrets.XIAOMI_API_KEY }}'|" js/config.js
-
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:

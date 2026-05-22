@@ -2,7 +2,7 @@
 const Config = {
     // 默认配置
     defaults: {
-        apiUrl: 'https://api.xiaomi.com/v1/chat/completions',
+        apiUrl: 'https://token-plan-cn.xiaomimimo.com/v1/chat/completions',
         apiKey: '',
         model: 'mimo-v2.5',
         systemPrompt: '你是川小农，一个专业的AI文案助手。你擅长创作各类营销文案、产品介绍、社交媒体内容、品牌故事等。请用专业、有创意的方式帮助用户完成文案创作任务。'
